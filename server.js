@@ -194,13 +194,13 @@ function isAuthorized(req) {
 function isAnalyticsAuthorized(
     req
 ) {
-    if (!ANALYTICS_ACCESS_KEY) {
+    if (!ROBLOX_ANALYTICS_API_KEY) {
         return false;
     }
 
     const receivedKey =
         req.header(
-            "x-analytics-key"
+            "x-api-key"
         );
 
     if (!receivedKey) {
@@ -209,7 +209,7 @@ function isAnalyticsAuthorized(
 
     return timingSafeEqual(
         receivedKey,
-        ANALYTICS_ACCESS_KEY
+        ROBLOX_ANALYTICS_API_KEY
     );
 }
 
